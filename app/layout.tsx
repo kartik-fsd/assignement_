@@ -1,21 +1,59 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "Pai - High-Quality & Ethically Sourced",
+  title: "Discover Our Products - Premium E-commerce Store",
   description:
-    "Discover Pai , your premier destination for hight quality , ethically sourced products. Shopour curated collection designed to elevate your life style. Enjoy Fast shipping  ,secure checkout ,and exceptional customer service",
+    "Explore our curated collection of premium products. Find the perfect items for your lifestyle with our extensive range of categories.",
+  keywords:
+    "ecommerce, products, shopping, online store, premium items, fashion, electronics, jewelry",
+  authors: [{ name: "Your Company Name" }],
+  creator: "Your Company Name",
+  publisher: "Your Company Name",
+  robots: "index, follow",
+  viewport: "width=device-width, initial-scale=1",
+
+  // Open Graph
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://your-domain.com",
+    title: "Discover Our Products - Premium E-commerce Store",
+    description:
+      "Explore our curated collection of premium products. Find the perfect items for your lifestyle.",
+    siteName: "Premium E-commerce Store",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Premium E-commerce Store",
+      },
+    ],
+  },
+
+  // Twitter
+  twitter: {
+    card: "summary_large_image",
+    title: "Discover Our Products - Premium E-commerce Store",
+    description: "Explore our curated collection of premium products.",
+    creator: "@yourhandle",
+    images: ["/twitter-image.jpg"],
+  },
+
+  // Additional meta tags
+  other: {
+    "theme-color": "#ffffff",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+  },
 };
 
 export default function RootLayout({
@@ -25,9 +63,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-      </body>
+      <body className={`${inter.variable}`}>{children}</body>
     </html>
   );
 }

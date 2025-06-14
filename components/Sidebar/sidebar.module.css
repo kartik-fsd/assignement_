@@ -1,0 +1,305 @@
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  background: white;
+  padding: 0;
+}
+
+/* Customizable Section */
+.customizableSection {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.customizableOption {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.customizableCheckbox {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  cursor: pointer;
+  accent-color: #333;
+}
+
+.customizableLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Filter Sections */
+.filterSection {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.filterHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.filterHeader:hover {
+  background-color: #f8f8f8;
+}
+
+.filterHeader:focus {
+  outline: 2px solid #333;
+  outline-offset: -2px;
+}
+
+.filterTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.arrow {
+  font-size: 12px;
+  color: #666;
+  transition: transform 0.2s ease;
+  font-weight: bold;
+}
+
+.arrowDown {
+  transform: rotate(0deg);
+}
+
+.arrowUp {
+  transform: rotate(180deg);
+}
+
+.filterOptions {
+  padding: 0 20px 16px 20px;
+  background-color: #fafafa;
+}
+
+.filterOption {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 6px 0;
+  transition: background-color 0.2s ease;
+}
+
+.filterOption:hover {
+  background-color: #f0f0f0;
+  margin: 0 -8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 4px;
+}
+
+.filterOption input {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  cursor: pointer;
+  accent-color: #333;
+}
+
+.filterOption input:focus {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
+
+.filterLabel {
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.filterOption:hover .filterLabel {
+  color: #333;
+}
+
+.filterOption input:checked + .filterLabel {
+  color: #333;
+  font-weight: 500;
+}
+
+/* For non-interactive filter labels (just "All" text) */
+.filterOptions > .filterLabel {
+  font-size: 14px;
+  color: #666;
+  padding: 6px 0;
+}
+
+/* Custom Checkbox Styling */
+.filterOption input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ddd;
+  border-radius: 3px;
+  margin-right: 8px;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.filterOption input[type="checkbox"]:checked {
+  border-color: #333;
+  background-color: #333;
+}
+
+.filterOption input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 20px;
+  }
+
+  .customizableSection,
+  .filterHeader {
+    padding: 12px 16px;
+  }
+
+  .filterOptions {
+    padding: 0 16px 12px 16px;
+  }
+
+  .filterTitle,
+  .customizableLabel {
+    font-size: 13px;
+  }
+
+  .filterLabel {
+    font-size: 13px;
+  }
+
+  .arrow {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .customizableSection,
+  .filterHeader {
+    padding: 10px 12px;
+  }
+
+  .filterOptions {
+    padding: 0 12px 10px 12px;
+  }
+
+  .filterTitle,
+  .customizableLabel {
+    font-size: 12px;
+  }
+
+  .filterLabel {
+    font-size: 12px;
+  }
+
+  .filterOption input,
+  .customizableCheckbox {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+  }
+
+  .filterOption input[type="radio"]:checked::after {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .filterSection {
+    border-bottom: 2px solid #000;
+  }
+
+  .customizableSection {
+    border-bottom: 2px solid #000;
+  }
+
+  .filterTitle,
+  .customizableLabel {
+    color: #000;
+  }
+
+  .filterLabel {
+    color: #000;
+  }
+
+  .arrow {
+    color: #000;
+  }
+
+  .filterOption input[type="radio"] {
+    border: 2px solid #000;
+  }
+
+  .filterOption input[type="radio"]:checked::after {
+    background-color: #000;
+  }
+
+  .customizableCheckbox {
+    accent-color: #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .filterHeader,
+  .filterOption,
+  .arrow {
+    transition: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .sidebar {
+    display: none;
+  }
+}
+
+/* Accessibility improvements */
+.filterHeader:focus-visible {
+  outline: 2px solid #333;
+  outline-offset: -2px;
+}
+
+.filterOption:focus-within {
+  background-color: #f0f0f0;
+  margin: 0 -8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 4px;
+}

@@ -1,0 +1,308 @@
+.header {
+  background: white;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  position: relative;
+}
+
+.logo h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 32px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navLink {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.2s ease;
+  padding: 8px 0;
+  position: relative;
+}
+
+.navLink:hover {
+  color: #666;
+}
+
+.navLink:focus {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #333;
+  transition: width 0.2s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.headerIcons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.iconButton:hover {
+  background-color: #f5f5f5;
+}
+
+.iconButton:focus {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
+
+.icon {
+  font-size: 18px;
+  display: block;
+  line-height: 1;
+}
+
+.language {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.language:hover {
+  border-color: #333;
+}
+
+/* Mobile Menu Toggle */
+.mobileMenuToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.hamburger {
+  width: 24px;
+  height: 2px;
+  background-color: #333;
+  border-radius: 1px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+.mobileMenuToggle:focus {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
+
+/* Mobile Navigation States */
+.navLinksOpen {
+  display: flex;
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .navLinks {
+    gap: 24px;
+  }
+
+  .headerIcons {
+    gap: 12px;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .nav {
+    height: 56px;
+  }
+
+  .navLinks {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 16px;
+    transform: none;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .navLinksOpen {
+    display: flex;
+  }
+
+  .navLink {
+    font-size: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .navLink:last-child {
+    border-bottom: none;
+  }
+
+  .mobileMenuToggle {
+    display: flex;
+  }
+
+  .headerIcons {
+    gap: 8px;
+  }
+
+  .iconButton {
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+  }
+
+  .icon {
+    font-size: 16px;
+  }
+
+  .language {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+
+  .logo h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .nav {
+    height: 52px;
+  }
+
+  .logo h2 {
+    font-size: 18px;
+  }
+
+  .headerIcons {
+    gap: 6px;
+  }
+
+  .iconButton {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+  }
+
+  .icon {
+    font-size: 14px;
+  }
+
+  .language {
+    font-size: 11px;
+    padding: 3px 5px;
+  }
+
+  .navLinks {
+    padding: 16px;
+  }
+
+  .navLink {
+    font-size: 15px;
+    padding: 10px 0;
+  }
+
+  .mobileMenuToggle {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hamburger {
+    width: 20px;
+    height: 2px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .header {
+    border-bottom: 2px solid #000;
+  }
+
+  .navLink,
+  .logo h2 {
+    color: #000;
+  }
+
+  .iconButton:hover {
+    background-color: #e0e0e0;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .navLink::after,
+  .iconButton,
+  .hamburger {
+    transition: none;
+  }
+}
