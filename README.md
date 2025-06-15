@@ -6,7 +6,7 @@ A modern, responsive e-commerce product listing page built with Next.js 15, Type
 
 **Deployed URL:** [\https://assignement-pied.vercel.app/](https://assignement-pied.vercel.app)
 
-**GitHub Repository:** [https://github.com/kartik-fsd/assignement\_.git](https://github.com/yourusername/Appscrip-task-yourname)
+**GitHub Repository:** [https://github.com/kartik-fsd/assignement\_.git](https://github.com/kartik-fsd/assignement_.git)
 
 ## 📋 Table of Contents
 
@@ -65,7 +65,7 @@ A modern, responsive e-commerce product listing page built with Next.js 15, Type
 
 - **ESLint** - Code linting and formatting
 - **Git** - Version control
-- **Netlify** - Deployment and hosting
+- **Vercel** - Deployment and hosting
 
 ## 🚀 Installation
 
@@ -236,11 +236,11 @@ GET https://fakestoreapi.com/products/category/{category}
 
 ## 🚀 Deployment
 
-### Netlify Deployment
+### Vercel Deployment
 
 1. **Connect Repository**
 
-   - Link GitHub repository to Netlify
+   - Link GitHub repository to Vercel
    - Configure build settings
 
 2. **Build Configuration**
@@ -255,7 +255,7 @@ GET https://fakestoreapi.com/products/category/{category}
 
 3. **Environment Variables**
 
-   - Set any required environment variables in Netlify dashboard
+   - Set any required environment variables in Vercel dashboard
 
 4. **Deploy**
    - Automatic deployments on Git push
