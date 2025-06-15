@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Sidebar from "@/components/Sidebar/index";
 import ProductCard from "@/components/product/productCard";
 import { Product, ProductGridProps } from "@/types/product";
-import styles from "./ProductGrid.module.css";
+import styles from "./productGrid.module.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const ProductGrid: React.FC<ProductGridProps> = ({

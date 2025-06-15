@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { SidebarProps } from "@/types/product";
-import styles from "./Sidebar.module.css";
+import styles from "./sidebar.module.css";
 
 const Sidebar: React.FC<SidebarProps> = () => {
   const [expandedSections, setExpandedSections] = useState<{
