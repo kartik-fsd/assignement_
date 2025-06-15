@@ -1,10 +1,9 @@
 "use client";
-
 import { useState, useEffect } from "react";
+import Sidebar from "@/components/Sidebar/index";
 import ProductCard from "@/components/product/productCard";
 import { Product, ProductGridProps } from "@/types/product";
 import styles from "./ProductGrid.module.css";
-import Sidebar from "../Sidebar";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const ProductGrid: React.FC<ProductGridProps> = ({
@@ -16,7 +15,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
     useState<Product[]>(initialProducts);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [sortBy, setSortBy] = useState<string>("recommended");
-  const [showFilters, setShowFilters] = useState<boolean>(true);
+  const [showFilters, setShowFilters] = useState<boolean>(false);
 
   // Filter and sort products
   useEffect(() => {
@@ -68,41 +67,26 @@ const ProductGrid: React.FC<ProductGridProps> = ({
           <span className={styles.itemCount}>
             {filteredProducts.length} ITEMS
           </span>
+        </div>
+
+        <div className={styles.controlsRight}>
           <button
             className={styles.filterToggle}
             onClick={toggleFilters}
             aria-label={showFilters ? "Hide filters" : "Show filters"}
           >
-            <span className={styles.filterIcon}></span>
-            <span>
-              {showFilters ? (
-                <sub
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <ChevronLeft size={14} />
-                  HIDE FILTER
-                </sub>
-              ) : (
-                <sub
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <ChevronRight size={14} />
-                  SHOW FILTER
-                </sub>
-              )}
-            </span>
+            {showFilters ? (
+              <span className={styles.filterIcon}>
+                <ChevronLeft size={12} />
+              </span>
+            ) : (
+              <span className={styles.filterIcon}>
+                <ChevronRight size={12} />
+              </span>
+            )}
+            <span>{showFilters ? "Hide filters" : "Show filters"}</span>
           </button>
-        </div>
 
-        <div className={styles.controlsRight}>
           <div className={styles.sortContainer}>
             <select
               value={sortBy}

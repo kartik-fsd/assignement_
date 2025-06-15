@@ -5,6 +5,7 @@ import ProductGrid from "@/components/product/productGrid";
 import { fetchProducts, fetchCategories } from "@/lib/api";
 import { Product, Category } from "@/types/product";
 import styles from "./page.module.css";
+import Footer from "@/components/Footer/Footer";
 
 // Server-side data fetching
 async function getProductsData(): Promise<{
@@ -107,6 +108,8 @@ export default async function HomePage() {
             <ProductGrid initialProducts={products} categories={categories} />
           </Suspense>
         </main>
+
+        <Footer />
       </div>
     </>
   );

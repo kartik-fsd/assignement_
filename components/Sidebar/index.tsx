@@ -42,6 +42,15 @@ const Sidebar: React.FC<SidebarProps> = () => {
     }));
   };
 
+  const unselectAll = (): void => {
+    setIdealForSelections({
+      all: false,
+      men: false,
+      women: false,
+      babyAndKids: false,
+    });
+  };
+
   return (
     <aside
       className={styles.sidebar}
@@ -74,6 +83,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
         </button>
         {expandedSections.idealFor && (
           <div className={styles.filterOptions}>
+            <button className={styles.unselectAllButton} onClick={unselectAll}>
+              Unselect All
+            </button>
             <label className={styles.filterOption}>
               <input
                 type="checkbox"

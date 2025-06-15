@@ -303,3 +303,25 @@
   padding-right: 8px;
   border-radius: 4px;
 }
+.unselectAllButton {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+  text-align: left;
+}
+
+.unselectAllButton:hover {
+  background-color: transparent !important;
+  text-decoration: underline !important;
+}
+
+.unselectAllButton:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}

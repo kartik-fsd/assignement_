@@ -1,8 +1,11 @@
+// components/ProductCard/ProductCard.tsx
 "use client";
 
 import { JSX, useState } from "react";
 import { ProductCardProps } from "@/types/product";
 import styles from "./ProductCard.module.css";
+import Image from "next/image";
+import { Camera, Heart, Star } from "lucide-react";
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const [isLiked, setIsLiked] = useState<boolean>(false);
@@ -29,12 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
     for (let i = 0; i < fullStars; i++) {
       stars.push(
-        <span
-          key={i}
-          className={styles.star}
-          role="img"
-          aria-label="Full star"
-        ></span>
+        <Star size={14} className={styles.star} fill="currentColor" key={i} />
       );
     }
 
@@ -45,7 +43,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           className={styles.starHalf}
           role="img"
           aria-label="Half star"
-        ></span>
+        >
+          ★
+        </span>
       );
     }
 
@@ -57,7 +57,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           className={styles.starEmpty}
           role="img"
           aria-label="Empty star"
-        ></span>
+        >
+          ☆
+        </span>
       );
     }
 
@@ -66,13 +68,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   // Create SEO-friendly image alt text
   const imageAlt = `${product.title} - ${product.category} product image`;
-
-  // Create SEO-friendly image filename
-  const imageName = product.title
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, "")
-    .replace(/\s+/g, "-")
-    .substring(0, 50);
 
   return (
     <article
@@ -97,19 +92,28 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             role="img"
             aria-label="Image failed to load"
           >
-            <span></span>
+            <Camera size={32} className={styles.cameraIcon} />
             <p>Image unavailable</p>
           </div>
         ) : (
-          <img
+          <Image
             src={product.image}
             alt={imageAlt}
-            className={styles.productImage}
+            width={300}
+            height={300}
             onLoad={handleImageLoad}
+            className={styles.productImage}
             onError={handleImageError}
-            loading="lazy"
-            itemProp="image"
-            data-filename={`${imageName}-product-image.jpg`}
+            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+            priority={false}
+            quality={85}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAAAAAAAAAAAAAAAAAAAACv/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAVAQEBAAAAAAAAAAAAAAAAAAAFBv/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJ0AHlf/2Q=="
+            style={{
+              objectFit: "cover",
+              width: "100%",
+              height: "100%",
+            }}
           />
         )}
 
@@ -123,7 +127,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           }
           type="button"
         >
-          <span role="img" aria-label={isLiked ? "Liked" : "Like"}></span>
+          <Heart
+            size={16}
+            className={isLiked ? styles.heartFilled : styles.heartEmpty}
+            fill={isLiked ? "currentColor" : "none"}
+          />
         </button>
       </div>
 
@@ -162,22 +170,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <meta
               itemProp="reviewCount"
               content={product.rating.count.toString()}
-            />
-          </div>
-
-          <div
-            className={styles.price}
-            itemProp="offers"
-            itemScope
-            itemType="https://schema.org/Offer"
-          >
-            <span className={styles.priceAmount} itemProp="price">
-              ${product.price}
-            </span>
-            <meta itemProp="currency" content="USD" />
-            <meta
-              itemProp="availability"
-              content="https://schema.org/InStock"
             />
           </div>
         </div>

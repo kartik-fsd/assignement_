@@ -52,6 +52,7 @@
 .controlsRight {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
 }
 
@@ -103,6 +104,13 @@
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
   padding: 20px 0;
+  contain: layout;
+  min-height: 600px;
+}
+
+.productsGrid > * {
+  /* Ensure consistent card heights */
+  min-height: 450px;
 }
 
 /* No Products State */
